@@ -9,10 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var ballImageView: UIImageView!
+    @IBOutlet weak var askBtn: UIButton!
+    let ballArray = [#imageLiteral(resourceName: "ball1.png"),#imageLiteral(resourceName: "ball4"),#imageLiteral(resourceName: "ball3"),#imageLiteral(resourceName: "ball1"),#imageLiteral(resourceName: "ball1")]
     
-    let ballArray = [#imageLiteral(resourceName: "ball1.png"),#imageLiteral(resourceName: "ball2.png"),#imageLiteral(resourceName: "ball3.png"),#imageLiteral(resourceName: "ball4.png"),#imageLiteral(resourceName: "ball5.png")]
-
-
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        askBtn.layer.cornerRadius = 5
+        askBtn.layer.borderColor = UIColor.white.cgColor
+    }
+    
+    @IBAction func askBtnPressed(_ sender: UIButton) {
+        ballImageView.image = ballArray.randomElement()
+    }
 }
 
